@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Supplier;
+use App\Product;
 use Illuminate\Http\Request;
 
-class SupplierController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return response()->json(Supplier::get(),200);   
+        return response()->json(Product::get(),200);  
     }
 
     /**
@@ -35,29 +35,28 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        $supplier = Supplier::create($request->all());
-        return response()->json($supplier, 201); 
+        $product = Product::create($request->all());
+        return response()->json($product, 201); 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Supplier  $supplier
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Supplier $supplier)
+    public function show(Product $product)
     {
-        //the variable $supplier here acts the same as $id
-        return  response()->json(Supplier::find($supplier),200); 
+        return  response()->json(Product::find($product),200);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Supplier  $supplier
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit(Product $product)
     {
         //
     }
@@ -66,25 +65,24 @@ class SupplierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Supplier  $supplier
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request, Product $product)
     {
-        $supplier->update($request->all()); 
-        return response()->json($supplier, 200); 
+        $product->update($request->all()); 
+        return response()->json($product, 200); 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Supplier  $supplier
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplier $supplier)
+    public function destroy(Product $product)
     {
-        $supplier->delete();
-         return response()->json(null, 204); 
+        $product->delete();
+        return response()->json(null, 204);
     }
-   
 }

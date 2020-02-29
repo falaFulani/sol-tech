@@ -16,9 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-//Routes for Suppliers
-Route::get('supplier', 'SupplierController@index'); 
-Route::get('supplier/{supplier}', 'SupplierController@show');
-Route::post('supplier','SupplierController@store'); 
-Route::put('supplier/{supplier}', 'SupplierController@update'); 
-Route::delete('supplier/{supplier}','SupplierController@destroy'); 
+// //Routes for Suppliers
+// Route::get('supplier', 'SupplierController@index'); 
+// Route::get('supplier/{supplier}', 'SupplierController@show');
+// Route::post('supplier','SupplierController@store'); 
+// Route::put('supplier/{supplier}', 'SupplierController@update'); 
+// Route::delete('supplier/{supplier}','SupplierController@destroy'); 
+Route::apiResources([
+    'supplier' => 'SupplierController',
+   'order' => 'OrderController', 
+   'product' => 'ProductController'
+]);

@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends Model
+class Order extends Model
 {
-    protected $table = 'suppliers';
+    protected $table = 'orders';
     public $timestamps = true; 
      protected $fillable  = [
-         'name'
+         'order_number'
      ]; 
      public function products(){
-        return $this->hasMany('App\Product'); 
-    }
+         return $this->hasMany('App\Product'); 
+     }
 }
